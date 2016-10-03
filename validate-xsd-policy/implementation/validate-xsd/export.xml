@@ -1,0 +1,158 @@
+<datapower-configuration version="3"><export-details><description>Exported Configuration</description><user>admin</user><domain>test-policy</domain><comment/><product-id>5725</product-id><product>IDG</product><display-product>IDG</display-product><model>IBM DataPower Gateway</model><display-model>IBM DataPower Gateway</display-model><device-name>9.42.102.139:9090</device-name><serial-number>0000000</serial-number><firmware-version>IDG.7.2.0.0</firmware-version><display-firmware-version>IDG.7.2.0.0</display-firmware-version><firmware-build>262935</firmware-build><firmware-timestamp>2015/06/10 10:22:14</firmware-timestamp><current-date>2015-08-26</current-date><current-time>10:44:47 EDT</current-time><reset-date>2015-07-23</reset-date><reset-time>07:34:17 EDT</reset-time><login-message/><custom-ui-file/></export-details><interface-data><interface name="eth0" type="Ethernet" vers="ipv4" ip-addr="9.42.102.139"/></interface-data><configuration domain="test-policy"><StylePolicyAction name="validate-xsd-get-payload" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<Type>xform</Type>
+<Input>NULL</Input>
+<Transform>local:///policy/validate-xsd/payload.xsl</Transform>
+<ActionDebug persisted="false">off</ActionDebug>
+<Output>INPUT</Output>
+<NamedInOutLocationType>default</NamedInOutLocationType>
+<SSLClientConfigType>proxy</SSLClientConfigType>
+<OutputType>default</OutputType>
+<Transactional>off</Transactional>
+<SOAPValidation>body</SOAPValidation>
+<SQLSourceType>static</SQLSourceType>
+<JWSVerifyStripSignature>on</JWSVerifyStripSignature>
+<Asynchronous>off</Asynchronous>
+<ResultsMode>first-available</ResultsMode>
+<RetryCount>0</RetryCount>
+<RetryInterval>1000</RetryInterval>
+<MultipleOutputs>off</MultipleOutputs>
+<IteratorType>XPATH</IteratorType>
+<Timeout>0</Timeout>
+<MethodRewriteType>GET</MethodRewriteType>
+<MethodType>POST</MethodType>
+<MethodType2>POST</MethodType2></StylePolicyAction><StylePolicyAction name="validate-xsd-handle-error-xform" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<Type>xform</Type>
+<Input>NULL</Input>
+<Transform>local:///policy/validate-xsd/error.xsl</Transform>
+<ActionDebug persisted="false">off</ActionDebug>
+<Output>NULL</Output>
+<NamedInOutLocationType>default</NamedInOutLocationType>
+<SSLClientConfigType>proxy</SSLClientConfigType>
+<OutputType>default</OutputType>
+<Transactional>off</Transactional>
+<SOAPValidation>body</SOAPValidation>
+<SQLSourceType>static</SQLSourceType>
+<JWSVerifyStripSignature>on</JWSVerifyStripSignature>
+<Asynchronous>off</Asynchronous>
+<ResultsMode>first-available</ResultsMode>
+<RetryCount>0</RetryCount>
+<RetryInterval>1000</RetryInterval>
+<MultipleOutputs>off</MultipleOutputs>
+<IteratorType>XPATH</IteratorType>
+<Timeout>0</Timeout>
+<MethodRewriteType>GET</MethodRewriteType>
+<MethodType>POST</MethodType>
+<MethodType2>POST</MethodType2></StylePolicyAction><StylePolicyRule name="validate-xsd-error" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<Direction>error-rule</Direction>
+<InputFormat>none</InputFormat>
+<OutputFormat>none</OutputFormat>
+<NonXMLProcessing>on</NonXMLProcessing>
+<Unprocessed>off</Unprocessed>
+<Actions class="StylePolicyAction">validate-xsd-handle-error-xform</Actions></StylePolicyRule><StylePolicyAction name="validate-xsd-custom-error-handler" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<Type>on-error</Type>
+<ActionDebug persisted="false">off</ActionDebug>
+<NamedInOutLocationType>default</NamedInOutLocationType>
+<SSLClientConfigType>proxy</SSLClientConfigType>
+<ErrorMode>continue</ErrorMode>
+<Rule>validate-xsd-error</Rule>
+<Transactional>off</Transactional>
+<SOAPValidation>body</SOAPValidation>
+<SQLSourceType>static</SQLSourceType>
+<JWSVerifyStripSignature>on</JWSVerifyStripSignature>
+<Asynchronous>off</Asynchronous>
+<ResultsMode>first-available</ResultsMode>
+<RetryCount>0</RetryCount>
+<RetryInterval>1000</RetryInterval>
+<MultipleOutputs>off</MultipleOutputs>
+<IteratorType>XPATH</IteratorType>
+<Timeout>0</Timeout>
+<MethodRewriteType>GET</MethodRewriteType>
+<MethodType>POST</MethodType>
+<MethodType2>POST</MethodType2></StylePolicyAction><StylePolicyAction name="validate-xsd-xml" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<Type>validate</Type>
+<Input>INPUT</Input>
+<ActionDebug persisted="false">off</ActionDebug>
+<Output>NULL</Output>
+<NamedInOutLocationType>default</NamedInOutLocationType>
+<SchemaURL>var://context/api/policy/validate/xsdSchemaURL</SchemaURL>
+<SSLClientConfigType>proxy</SSLClientConfigType>
+<Transactional>off</Transactional>
+<SOAPValidation>body</SOAPValidation>
+<SQLSourceType>static</SQLSourceType>
+<JWSVerifyStripSignature>on</JWSVerifyStripSignature>
+<Asynchronous>off</Asynchronous>
+<ResultsMode>first-available</ResultsMode>
+<RetryCount>0</RetryCount>
+<RetryInterval>1000</RetryInterval>
+<MultipleOutputs>off</MultipleOutputs>
+<IteratorType>XPATH</IteratorType>
+<Timeout>0</Timeout>
+<MethodRewriteType>GET</MethodRewriteType>
+<MethodType>POST</MethodType>
+<MethodType2>POST</MethodType2></StylePolicyAction><StylePolicyAction name="validate-xsd-default-error-handler" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<Type>on-error</Type>
+<ActionDebug persisted="false">off</ActionDebug>
+<NamedInOutLocationType>default</NamedInOutLocationType>
+<SSLClientConfigType>proxy</SSLClientConfigType>
+<ErrorMode>abort</ErrorMode>
+<Transactional>off</Transactional>
+<SOAPValidation>body</SOAPValidation>
+<SQLSourceType>static</SQLSourceType>
+<JWSVerifyStripSignature>on</JWSVerifyStripSignature>
+<Asynchronous>off</Asynchronous>
+<ResultsMode>first-available</ResultsMode>
+<RetryCount>0</RetryCount>
+<RetryInterval>1000</RetryInterval>
+<MultipleOutputs>off</MultipleOutputs>
+<IteratorType>XPATH</IteratorType>
+<Timeout>0</Timeout>
+<MethodRewriteType>GET</MethodRewriteType>
+<MethodType>POST</MethodType>
+<MethodType2>POST</MethodType2></StylePolicyAction><StylePolicyAction name="validate-xsd-final" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<Type>xform</Type>
+<Input>INPUT</Input>
+<Transform>store:///identity.xsl</Transform>
+<InputLanguage>json</InputLanguage>
+<TransformLanguage>xquery</TransformLanguage>
+<ActionDebug persisted="false">off</ActionDebug>
+<TxMode>default</TxMode>
+<Output>OUTPUT</Output>
+<NamedInOutLocationType>default</NamedInOutLocationType>
+<SSLClientConfigType>proxy</SSLClientConfigType>
+<OutputType>default</OutputType>
+<Transactional>off</Transactional>
+<SOAPValidation>body</SOAPValidation>
+<SQLSourceType>static</SQLSourceType>
+<JOSESerializationType>compact</JOSESerializationType>
+<JWEEncAlgorithm>A128CBC-HS256</JWEEncAlgorithm>
+<JOSEVerifyType>identifiers</JOSEVerifyType>
+<JOSEDecryptType>identifiers</JOSEDecryptType>
+<JWSVerifyStripSignature>on</JWSVerifyStripSignature>
+<Asynchronous>off</Asynchronous>
+<ResultsMode>first-available</ResultsMode>
+<RetryCount>0</RetryCount>
+<RetryInterval>1000</RetryInterval>
+<MultipleOutputs>off</MultipleOutputs>
+<IteratorType>XPATH</IteratorType>
+<Timeout>0</Timeout>
+<MethodRewriteType>GET</MethodRewriteType>
+<MethodType>POST</MethodType>
+<MethodType2>POST</MethodType2></StylePolicyAction><StylePolicyRule name="validate-xsd-main" xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:dp="http://www.datapower.com/schemas/management">
+<mAdminState>enabled</mAdminState>
+<Direction>request-rule</Direction>
+<InputFormat>none</InputFormat>
+<OutputFormat>none</OutputFormat>
+<NonXMLProcessing>on</NonXMLProcessing>
+<Unprocessed>off</Unprocessed>
+<Actions class="StylePolicyAction">validate-xsd-get-payload</Actions>
+<Actions class="StylePolicyAction">validate-xsd-custom-error-handler</Actions>
+<Actions class="StylePolicyAction">validate-xsd-xml</Actions>
+<Actions class="StylePolicyAction">validate-xsd-default-error-handler</Actions>
+<Actions class="StylePolicyAction">validate-xsd-final</Actions></StylePolicyRule></configuration><files><file name="local:///policy/validate-xsd/payload.xsl" src="local/policy/validate-xsd/payload.xsl" location="local" hash="/UDISYfJ8LZwFKierd4L6Ag3sps="/><file name="local:///isp/policy/apim.custom.xsl" src="local/isp/policy/apim.custom.xsl" location="local" missing="true"/><file name="local:///policy/validate-xsd/error.xsl" src="local/policy/validate-xsd/error.xsl" location="local" hash="eyHpwK8QhjxAZyQOcaoSVUMCKy8="/><file name="webgui:///clixform.xsl" src="dp-aux/clixform.xsl" location="dp-aux" internal="true" hash="yGMzmqDC5iBm2ZIMGPEzl7A2mso="/><file name="webgui:///SchemaUtil.xsl" src="dp-aux/SchemaUtil.xsl" location="dp-aux" internal="true" hash="+CayzuEqM17TWlM3IC3n2NlcfsI="/><file name="webgui:///management.xsl" src="dp-aux/management.xsl" location="dp-aux" internal="true" hash="EOeJnfXfGxgKVTgNTGthBkYOdf4="/><file name="webgui:///map-dmz.xsl" src="dp-aux/map-dmz.xsl" location="dp-aux" internal="true" hash="n00B2bmGoH6OdSOW1QRz/SNVbYc="/><file name="webgui:///drMgmt.xml" src="dp-aux/drMgmt.xml" location="dp-aux" internal="true" hash="b7dWUrvNM7MxZnpGo79CnlbAFKE="/><file name="webgui:///basetypes.xml" src="dp-aux/basetypes.xml" location="dp-aux" internal="true" hash="pwOz4NntLrPtIuyC4CSPxGnlghM="/></files></datapower-configuration>

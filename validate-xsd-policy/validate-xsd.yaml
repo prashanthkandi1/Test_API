@@ -1,0 +1,30 @@
+policy: 1.0.0
+
+info:
+  title: Validate XML
+  name: validate-xsd
+  version: 1.0.0
+  description: Validate message using an XML schema.
+  contact: 
+    name: IBM DataPower Samples
+    url: https://github.com/ibm-datapower/
+    email: steve-product-manager@ibm.com
+
+attach:
+  - rest
+  - soap
+
+gateways:
+  - datapower-gateway
+
+properties:
+  $schema: "http://json-schema.org/draft-04/schema#"
+  type: object
+  properties:
+    xmlSchemaURL:
+      label: "XML Schema URL"
+      description: "The location of the XML schema to use for message validation"
+      type: string
+  required:
+    - xmlSchemaURL
+
