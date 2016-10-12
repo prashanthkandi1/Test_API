@@ -1,0 +1,56 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Sample
+  x-ibm-name: sample
+  contact:
+    name: Prashanth kandi
+host: $(catalog.host)
+basePath: /api
+paths:
+  /path-1:
+    get:
+      responses:
+        '200':
+          description: 200 OK
+    parameters:
+      - $ref: '#/parameters/Integer_A'
+      - $ref: '#/parameters/Integer_B'
+securityDefinitions:
+  clientID:
+    description: ''
+    in: header
+    name: X-IBM-Client-Id
+    type: apiKey
+security:
+  - clientID: []
+x-ibm-configuration:
+  assembly:
+    execute:
+      - invoke:
+          target-url: $(target-url)
+schemes:
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+parameters:
+  Integer_A:
+    name: Integer_A
+    type: integer
+    required: true
+    in: formData
+    format: int32
+  Integer_B:
+    name: Integer_B
+    type: integer
+    required: true
+    in: formData
+    format: int32
+  Sum:
+    name: Sum
+    type: number
+    required: false
+    in: formData
+    format: double
